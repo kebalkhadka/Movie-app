@@ -1,0 +1,79 @@
+.media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 210px; /* Adjust width of card */
+  margin: 10px; /* Add margin between cards */
+
+}
+
+.posterWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.poster {
+  width: 100%;
+  height: auto; /* Maintain image aspect ratio */
+  border-radius: 10px; /* Optional: Add some rounding to the image */
+}
+
+.title {
+  margin-top: 8px;
+  font-weight: 700;
+  width: 100%;
+  font-size: 18px; /* Adjusted font size to fit */
+  padding: 8px 0;
+}
+
+.subTitle {
+  font-size: 0.85rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.media {
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  padding: 5px;
+  margin: 5px 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.media img {
+  border-radius: 16px;
+  position: relative;
+}
+
+.media:hover {
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  .media {
+    width: 30%; /* Three cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .media {
+    width: 45%; /* Two cards per row on smaller screens */
+    height: 10%;
+  }
+}
+
+@media (max-width: 550px) {
+  .media {
+    width: 90%; /* One card per row on small screens */
+    
+  }
+}
+
