@@ -4,17 +4,16 @@ A movie browsing app that allows users to search for movies, view details, and e
 
 ## Features
 
-- 🎥 Browse popular, top-rated, and upcoming movies.
+- 🎥 Browse trending, top-rated movies and tv-series
 - 🔍 Search for specific movies by title.
 - 📜 View detailed information about each movie (e.g., synopsis, release date, rating).
-- 🖼️ Display movie posters.
 - 🌐 Fully responsive design.
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript (React or Vanilla)
+- **Frontend:** HTML, CSS, JavaScript(React)
 - **API:** [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api)
-- **Styling:** Tailwind CSS / Bootstrap / Custom CSS (whichever you use)
+- **Styling:** css ,Material ui
 
 ## API Used
 
@@ -62,13 +61,6 @@ To run the app locally, you'll need:
     npm start
     ```
 
-### Usage
-
-Once the app is running, you can:
-
-1. Browse movies by categories (popular, top-rated, upcoming).
-2. Use the search bar to find specific movies.
-3. Click on any movie to view more details about it.
 
 ## Screenshots
 
