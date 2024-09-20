@@ -29,7 +29,7 @@ const Seriesdetail = () => {
         setCast(castData.cast);
       } catch (e) {
         console.log("Error found", e);
-        setError(e.message); // Set error message
+        setError(e.message);
       }
     };
 
