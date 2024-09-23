@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
+import CircularRating from '../../component/CircularRating';
 
 const Seriesdetail = () => {
   const { id } = useParams();
@@ -13,15 +14,15 @@ const Seriesdetail = () => {
       try {
         // Log the ID being used for debugging
         console.log(`Fetching Series with ID: ${id}`);
-
-        const response = await fetch(`https://api.theSeriesdb.org/3/Series/${id}?api_key=882a8de2ab02bad8c607b4a64e51f81a`);
+    
+        const response = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=882a8de2ab02bad8c607b4a64e51f81a`);
         if (!response.ok) {
           throw new Error(`Series not found (status: ${response.status})`);
         }
         const data = await response.json();
         setSeriesDetail(data);
-
-        const castResponse = await fetch(`https://api.theSeriesdb.org/3/Series/${id}/credits?api_key=882a8de2ab02bad8c607b4a64e51f81a`);
+    
+        const castResponse = await fetch(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=882a8de2ab02bad8c607b4a64e51f81a`);
         if (!castResponse.ok) {
           throw new Error(`Credits not found (status: ${castResponse.status})`);
         }
@@ -32,6 +33,7 @@ const Seriesdetail = () => {
         setError(e.message);
       }
     };
+    
 
     fetchSeriesDetail();
   }, [id]);
@@ -58,6 +60,9 @@ const Seriesdetail = () => {
       <h1>{SeriesDetail.title}</h1>
       <p>{SeriesDetail.overview}</p>
       <img src={`https://image.tmdb.org/t/p/w500${SeriesDetail.poster_path}`} alt={SeriesDetail.title} />
+
+      {/* Use CircularRating to display vote_average */}
+      <CircularRating vote_average={SeriesDetail.vote_average} />
 
       {/* Display cast */}
       <h2>Cast:</h2>

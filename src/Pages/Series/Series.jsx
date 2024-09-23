@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Paginations from '../../component/pagination/Paginations';
 import SingleContent from '../../component/SingleContent/SingleContent';
+import './Series.css'
 
 const Series = () => {
   const [page, setPage] = useState(1);
