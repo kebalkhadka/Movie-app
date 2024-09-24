@@ -12,7 +12,6 @@
   width: 100%;
   height: auto;
 }
-
 .poster {
   width: 100%;
   height: auto; /* Maintain image aspect ratio */
@@ -20,11 +19,11 @@
 }
 
 .title {
-  margin-top: 8px;
   font-weight: 700;
   width: 100%;
   font-size: 18px; /* Adjusted font size to fit */
-  padding: 8px 0;
+  position: relative;
+  bottom: 10px
 }
 
 .subTitle {
@@ -33,6 +32,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  bottom: 2px;
 }
 
 

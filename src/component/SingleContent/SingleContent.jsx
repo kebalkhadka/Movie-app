@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import CircularRating from '../CircularRating';
+import { CircularProgress, Box, Typography } from '@mui/material';
 import './SingleContent.css';
 
 // Define the base URL for image posters
@@ -20,6 +20,9 @@ const SingleContent = ({
     navigate(media_type === 'tv' ? `/series/${id}` : `/movie/${id}`);
   };
 
+  // Normalize the rating to a percentage (out of 100) for CircularProgress
+  const normalizedRating = vote_average ? (vote_average * 10) : 0;
+
   return (
     <div className="media" onClick={handleClick}>
       <div className="posterWrapper">
@@ -28,8 +31,50 @@ const SingleContent = ({
           alt={title} 
           className="poster" 
         />
-        {/* Use CircularRating */}
-        <CircularRating vote_average={vote_average} />
+        {/* Use CircularProgress to show rating */}
+        <Box
+          position="relative"
+          display="inline-flex"
+          alignItems="center"
+          justifyContent="center"
+          width={40}
+          height={40}
+          left={10}
+          bottom={20}
+          bgcolor="rgba(255, 255, 255, 1)"
+          borderRadius="50%"
+          boxShadow="0px 4px 8px rgba(0, 0, 0, 0.2)"
+        >
+          <CircularProgress
+            variant="determinate"
+            value={normalizedRating}  
+            size={40}
+            thickness={4}
+            style={{ color: 'green' }}
+          />
+          <Box
+            position="absolute"
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Typography
+              variant="caption"
+              component="div"
+              style={{
+                fontSize: '0.65rem',
+                color: 'black',
+                fontWeight: 'bold',
+              }}
+            >
+              {vote_average ? vote_average.toFixed(1) : 'N/A'}
+            </Typography>
+          </Box>
+        </Box>
       </div>
       <h3 className="title">
         {title.length > 20 ? `${title.substring(0, 20)}...` : title}
