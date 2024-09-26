@@ -3,3 +3,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.autocomplete{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+
+}

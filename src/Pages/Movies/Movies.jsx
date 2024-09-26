@@ -16,7 +16,12 @@ const Movies = () => {
     { id: 16, name: 'Animation' },
     { id: 35, name: 'Comedy' },
     { id: 80, name: 'Crime' },
-    // Add more genres as needed
+    { id: 99, name: 'Documentary' },
+    { id: 10751, name: 'Family' },
+    { id: 10762, name: 'Kids' },
+    { id: 9648, name: 'Mystery' },
+    { id: 10763, name: 'News' },
+    { id: 10764, name: 'Reality' },
   ];
 
   const fetchMovies = async (genres) => {
