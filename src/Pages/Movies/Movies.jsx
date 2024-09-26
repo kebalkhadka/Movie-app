@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Paginations from '../../component/pagination/Paginations';
 import SingleContent from '../../component/SingleContent/SingleContent';
 import AutoComplete from '../../component/Autocomplete';
+import './Movies.css';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
@@ -44,9 +45,12 @@ const Movies = () => {
   return (
     <div>
       <span className='pageTitle'>Movies</span>
-      <AutoComplete options={genreOptions} onChange={setSelectedGenres} /> {/* Pass the genre options */}
+      <div className='autocomplete'>
+      <AutoComplete options={genreOptions} onChange={setSelectedGenres} />
+      </div>
+       {/* Pass the genre options */}
 
-      <div className="trending">
+      <div className="movies">
         {content && content.map((c) => (
           <SingleContent
             key={c.id}
