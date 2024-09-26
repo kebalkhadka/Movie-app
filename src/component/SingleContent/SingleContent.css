@@ -70,11 +70,11 @@
     height: 10%;
   }
 }
-
+/*
 @media (max-width: 550px) {
-  .media {
-    width: 90%; /* One card per row on small screens */
+   .media {
+    width: 90%; 
     
-  }
+  } 
 }
-
+*/
