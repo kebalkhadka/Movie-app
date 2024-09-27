@@ -1,0 +1,12 @@
+.headings{
+    display: flex;
+    gap: 2rem;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+}
+.banner{
+    width: 60%;
+    border-radius: 28px;
+}
