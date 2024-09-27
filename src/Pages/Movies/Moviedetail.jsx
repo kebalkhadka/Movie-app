@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
 import CircularRating from '../../component/CircularRating';
+import './Moviedetail.css';
 
 const Moviedetail = () => {
   const { id } = useParams();
@@ -47,14 +48,21 @@ const Moviedetail = () => {
   }
 
   return (
-    <div>
+    <div className='Moviedetails'>
+      <div className='headings'>
+      <img src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`} alt={movieDetail.title} className='banner'/>
+      <div className='details'>
       <h1>{movieDetail.title}</h1>
       <p>{movieDetail.overview}</p>
-      <img src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`} alt={movieDetail.title} />
+            {/* Use CircularRating to display vote_average */}
+            <CircularRating vote_average={movieDetail.vote_average} />
+      </div>
+      
 
-      {/* Use CircularRating to display vote_average */}
-      <CircularRating vote_average={movieDetail.vote_average} />
 
+      </div>
+
+      <div className='cast'>
       <h2>Cast:</h2>
       <ul>
         {cast.map((actor) => (
@@ -66,6 +74,7 @@ const Moviedetail = () => {
           ) : null
         ))}
       </ul>
+      </div>
     </div>
   );
 };
