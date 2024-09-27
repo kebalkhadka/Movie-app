@@ -57,7 +57,7 @@
   cursor: pointer;
 }
 
-/* Mobile adjustments */
+
 @media (max-width: 1024px) {
   .media {
     width: 30%; 
