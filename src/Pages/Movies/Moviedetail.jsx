@@ -13,13 +13,17 @@ const Moviedetail = () => {
   useEffect(() => {
     const fetchMovieDetail = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=882a8de2ab02bad8c607b4a64e51f81a`);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=882a8de2ab02bad8c607b4a64e51f81a`
+        );
         if (!response.ok) throw new Error(`Movie not found (status: ${response.status})`);
 
         const data = await response.json();
         setMovieDetail(data);
 
-        const castResponse = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=882a8de2ab02bad8c607b4a64e51f81a`);
+        const castResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}/credits?api_key=882a8de2ab02bad8c607b4a64e51f81a`
+        );
         if (!castResponse.ok) throw new Error(`Credits not found (status: ${castResponse.status})`);
 
         const castData = await castResponse.json();
@@ -49,31 +53,37 @@ const Moviedetail = () => {
 
   return (
     <div className='Moviedetails'>
-      <div className='headings'>
-      <img src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`} alt={movieDetail.title} className='banner'/>
-      <div className='details'>
-      <h1>{movieDetail.title}</h1>
-      <p>{movieDetail.overview}</p>
-            {/* Use CircularRating to display vote_average */}
-            <CircularRating vote_average={movieDetail.vote_average} />
-      </div>
-      
-
-
+      <div className="content">
+      <div className='left'>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
+          alt={movieDetail.title}
+          className='banner'
+        />
+        </div>
+        <div className='right'>
+          <h1>{movieDetail.title}</h1>
+          <p>{movieDetail.overview}</p>
+          {/* Use CircularRating to display vote_average */}
+          <CircularRating vote_average={movieDetail.vote_average} />
+        </div>
       </div>
 
       <div className='cast'>
-      <h2>Cast:</h2>
-      <ul>
-        {cast.map((actor) => (
-          actor.profile_path ? (
-            <div key={actor.id}>
-              <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
-              <li>{actor.name}</li>
-            </div>
-          ) : null
-        ))}
-      </ul>
+        <h2>Cast:</h2>
+        <ul>
+          {cast.map((actor) =>
+            actor.profile_path ? (
+              <div key={actor.id}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                  alt={actor.name}
+                />
+                <li>{actor.name}</li>
+              </div>
+            ) : null
+          )}
+        </ul>
       </div>
     </div>
   );
