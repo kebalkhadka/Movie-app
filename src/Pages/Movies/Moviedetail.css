@@ -4,9 +4,66 @@
 }
 .content{
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
+    width: 90%;
 }
-.left{
+ /* .left{
     flex-shrink: 0;
+}  */
+.left{
+    width: 60%;
+}
+.left img{
+    width: 100%;
+    border-radius: 18px;
+}
+.right h1{
+    font-size: 42px;
+}
+.right p{
+    font-size: 20px;
 }
 
+.cast {
+    margin-top: 2rem ;
+    width: 100%;
+    overflow: hidden; 
+  }
+  
+  .cast-container {
+    overflow-x: auto; 
+    white-space: nowrap; 
+    display: block;
+    width: 100%;
+    scrollbar-width: none;
+    margin-top: 1rem;
+  }
+  
+  .cast ul {
+    display: flex;
+    gap: 1rem; /* Add space between items */
+    padding: 0;
+    margin: 0;
+    width: max-content; /* Ensures ul takes only as much width as its content */
+  }
+  
+  .cast li {
+    list-style: none;
+    flex-shrink: 0; /* Prevent shrinking of items */
+    text-align: center;
+  }
+  
+  .cast img {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  .cast span{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 0.5rem;
+    display: block;
+  }

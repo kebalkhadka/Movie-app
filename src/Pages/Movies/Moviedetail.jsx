@@ -69,22 +69,25 @@ const Moviedetail = () => {
         </div>
       </div>
 
-      <div className='cast'>
-        <h2>Cast:</h2>
-        <ul>
-          {cast.map((actor) =>
-            actor.profile_path ? (
-              <div key={actor.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-                  alt={actor.name}
-                />
-                <li>{actor.name}</li>
-              </div>
-            ) : null
-          )}
-        </ul>
-      </div>
+  <div className='cast'>
+  <h2>Cast:</h2>
+  <div className="cast-container">
+    <ul>
+      {cast.map((actor) =>
+        actor.profile_path ? (
+          <li key={actor.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+              alt={actor.name}
+            />
+            <span>{actor.name}</span>
+          </li>
+        ) : null
+      )}
+    </ul>
+  </div>
+</div>
+
     </div>
   );
 };
