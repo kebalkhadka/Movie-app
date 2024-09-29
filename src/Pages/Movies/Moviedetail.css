@@ -41,7 +41,7 @@
   
   .cast ul {
     display: flex;
-    gap: 1rem; /* Add space between items */
+    gap: 1rem; 
     padding: 0;
     margin: 0;
     width: max-content; /* Ensures ul takes only as much width as its content */
