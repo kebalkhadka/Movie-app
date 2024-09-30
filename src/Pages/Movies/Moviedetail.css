@@ -1,69 +1,157 @@
-.headings{
-    display: flex;
-    gap: 2rem;
+/* Ensure all elements include padding and border in their width */
+* {
+  box-sizing: border-box;
 }
-.content{
-    display: flex;
-    gap: 2rem;
-    width: 90%;
+
+.Moviedetails {
+  margin-top: 2rem;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
- /* .left{
-    flex-shrink: 0;
-}  */
-.left{
-    width: 60%;
+
+.content {
+  display: flex;
+  gap: 3rem;
+  max-width: 1200px; /* Set a maximum width to ensure content doesn't stretch */
+  width: 100%;
+  margin: 0 auto; /* Center the content */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
-.left img{
-    width: 100%;
-    border-radius: 18px;
+
+.left {
+  flex-shrink: 0;
+  width: 30%; 
+  max-width: 100%; /* Ensure it doesn't exceed the container */
 }
-.right h1{
-    font-size: 42px;
+
+.left img {
+  width: 100%;
+  border-radius: 18px;
 }
-.right p{
-    font-size: 20px;
+
+.right {
+  flex: 1; /* Ensure the right section fills the remaining space */
+  overflow: hidden;
+}
+
+.right h1 {
+  font-size: 42px;
+}
+
+.right p {
+  font-size: 20px;
 }
 
 .cast {
-    margin-top: 2rem ;
-    width: 100%;
-    overflow: hidden; 
-  }
+  margin-top: 2rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cast-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: block;
+  width: 100%;
+  scrollbar-width: none;
+  margin-top: 1rem;
+}
+
+.cast ul {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  width: max-content; /* Ensures ul takes only as much width as its content */
+}
+
+.cast li {
+  list-style: none;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.cast img {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.cast span {
+  font-size: 1.2rem;
+  font-weight: semibold;
+  color: #fff;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.genres {
+  display: flex;
+  margin: 1rem 0;
+  gap: 0.5rem;
+}
+
+button {
+  background-color: #DA2F68;
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.rating {
+  margin: 1rem 0;
+}
+
+.overview {
+  margin-bottom: 0.5rem;
+}
+
+.overview-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+
+}
+
+.overview-description {
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  scrollbar-width: none;
   
-  .cast-container {
-    overflow-x: auto; 
-    white-space: nowrap; 
-    display: block;
-    width: 100%;
-    scrollbar-width: none;
-    margin-top: 1rem;
-  }
-  
-  .cast ul {
-    display: flex;
-    gap: 1rem; 
-    padding: 0;
-    margin: 0;
-    width: max-content; /* Ensures ul takes only as much width as its content */
-  }
-  
-  .cast li {
-    list-style: none;
-    flex-shrink: 0; /* Prevent shrinking of items */
-    text-align: center;
-  }
-  
-  .cast img {
-    height: 180px;
-    width: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-  }
-  .cast span{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    margin-top: 0.5rem;
-    display: block;
-  }
+}
+/* Style for the movie-info section */
+.movie-info {
+  margin-top: 1.5rem;
+  font-size: 18px; /* Adjust font size as needed */
+  color: #fff; 
+  display: flex;
+  gap: 1rem;
+}
+
+.movie-info .label {
+  font-weight: bold;
+  color: #fff; 
+  margin-right: 0.5rem; 
+}
+
+.movie-info .value {
+  color: #888892;
+}
+
+/* Prevent horizontal scrollbars */
+html, body {
+  overflow-x: hidden;
+}
+hr {
+  border: none;              /* Remove the default border */
+  border-top: 1px solid #888892; /* Set a light gray color and thin border */
+  margin-top: 1rem;          /* Add more space above */
+  opacity: 0.4;              /* Make it lighter in appearance */
+}
+

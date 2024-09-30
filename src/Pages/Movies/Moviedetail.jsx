@@ -54,40 +54,69 @@ const Moviedetail = () => {
   return (
     <div className='Moviedetails'>
       <div className="content">
-      <div className='left'>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
-          alt={movieDetail.title}
-          className='banner'
-        />
+        <div className='left'>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
+            alt={movieDetail.title}
+            className='banner'
+          />
         </div>
         <div className='right'>
           <h1>{movieDetail.title}</h1>
-          <p>{movieDetail.overview}</p>
+          <div className="genres">
+            {movieDetail.genres && movieDetail.genres.map((genre) => (
+              <button key={genre.id}>{genre.name}</button>
+            ))}
+          </div>
+          
           {/* Use CircularRating to display vote_average */}
-          <CircularRating vote_average={movieDetail.vote_average} />
+          <div className="rating">
+            <CircularRating vote_average={movieDetail.vote_average} />
+          </div>
+          <div className='overview-title'>Overview</div>
+          <p className='overview-description'>{movieDetail.overview}</p>
+
+                    {/* Status, Runtime, and Release Date */}
+   <div className="movie-info">
+    <p>
+    <span className="label">Status:</span> 
+    <span className="value">{movieDetail.status}</span>
+    </p>
+  <p>
+    <span className="label">Runtime:</span> 
+    <span className="value">{movieDetail.runtime} minutes</span>
+  </p>
+  <p>
+    <span className="label">Release Date:</span> 
+    <span className="value">{new Date(movieDetail.release_date).toDateString()}</span>
+  </p>
+</div>
+<hr />
+<p><strong>Director:</strong> {movieDetail.director}</p>
+  <p><strong>Writers:</strong> {movieDetail.writers.join(', ')}</p>
+
         </div>
       </div>
 
-  <div className='cast'>
-  <h2>Cast:</h2>
-  <div className="cast-container">
-    <ul>
-      {cast.map((actor) =>
-        actor.profile_path ? (
-          <li key={actor.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-              alt={actor.name}
-            />
-            <span>{actor.name}</span>
-          </li>
-        ) : null
-      )}
-    </ul>
-  </div>
-</div>
-
+      {/* Cast section */}
+      <div className='cast'>
+        <h2>Cast:</h2>
+        <div className="cast-container">
+          <ul>
+            {cast.map((actor) =>
+              actor.profile_path ? (
+                <li key={actor.id}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                    alt={actor.name}
+                  />
+                  <span>{actor.name}</span>
+                </li>
+              ) : null
+            )}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
