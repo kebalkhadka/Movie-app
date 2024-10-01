@@ -10,8 +10,9 @@
 
 .content {
   display: flex;
+  flex-direction: column; /* Default to column layout for smaller screens */
   gap: 3rem;
-  max-width: 1200px; /* Set a maximum width to ensure content doesn't stretch */
+  max-width: 1200px; /* Set a maximum width */
   width: 100%;
   margin: 0 auto; /* Center the content */
   flex-wrap: wrap; /* Allow items to wrap to the next line */
@@ -19,8 +20,7 @@
 
 .left {
   flex-shrink: 0;
-  width: 30%; 
-  max-width: 100%; /* Ensure it doesn't exceed the container */
+  width: 100%; /* Full width on smaller screens */
 }
 
 .left img {
@@ -34,11 +34,11 @@
 }
 
 .right h1 {
-  font-size: 42px;
+  font-size: 32px; /* Smaller font for better responsiveness */
 }
 
 .right p {
-  font-size: 20px;
+  font-size: 18px; /* Smaller font for better responsiveness */
 }
 
 .cast {
@@ -61,7 +61,7 @@
   gap: 1rem;
   padding: 0;
   margin: 0;
-  width: max-content; /* Ensures ul takes only as much width as its content */
+  width: max-content; 
 }
 
 .cast li {
@@ -71,15 +71,16 @@
 }
 
 .cast img {
-  height: 180px;
-  width: 180px;
+  height: 110px;
+  width: 110px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
 .cast span {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: semibold;
   color: #fff;
   margin-top: 0.5rem;
@@ -90,6 +91,7 @@
   display: flex;
   margin: 1rem 0;
   gap: 0.5rem;
+  flex-wrap: wrap; /* Wrap genres on small screens */
 }
 
 button {
@@ -109,49 +111,111 @@ button {
 }
 
 .overview-title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   margin-bottom: 0.5rem;
-
 }
 
 .overview-description {
-  font-size: 16px;
   line-height: 24px;
   max-width: 100%;
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word; 
-  scrollbar-width: none;
-  
 }
-/* Style for the movie-info section */
+
 .movie-info {
   margin-top: 1.5rem;
-  font-size: 18px; /* Adjust font size as needed */
+  font-size: 16px;
   color: #fff; 
   display: flex;
   gap: 1rem;
+  display: flex;
 }
 
 .movie-info .label {
   font-weight: bold;
   color: #fff; 
   margin-right: 0.5rem; 
+  font-size: 16px;
 }
 
 .movie-info .value {
   color: #888892;
+  font-size: 16px;
 }
 
-/* Prevent horizontal scrollbars */
+.Director {
+  font-size: 16px;
+  color: #888892;
+}
+
+strong {
+  color: #fff;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #888892;
+  margin-top: 1rem;
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row; /* Row layout for medium to large screens */
+  }
+
+  .left {
+    width: 30%; /* 30% width for larger screens */
+  }
+
+  .right h1 {
+    font-size: 42px; /* Larger font size for bigger screens */
+  }
+
+  .right p {
+    font-size: 20px;
+  }
+
+  .cast img {
+    height: 180px;
+    width: 180px; 
+  }
+
+  .cast span {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width:900px) {
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+@media (min-width: 1024px) {
+  .content {
+    gap: 4rem;
+  }
+
+  .right h1 {
+    font-size: 48px;
+  }
+
+  /* .cast img {
+    height: 200px;
+    width: 200px;
+  } */
+
+  .cast span {
+    font-size: 1.4rem;
+  }
+ 
+}
+
 html, body {
   overflow-x: hidden;
 }
-hr {
-  border: none;              /* Remove the default border */
-  border-top: 1px solid #888892; /* Set a light gray color and thin border */
-  margin-top: 1rem;          /* Add more space above */
-  opacity: 0.4;              /* Make it lighter in appearance */
-}
-

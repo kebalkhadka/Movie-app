@@ -8,26 +8,37 @@ const Moviedetail = () => {
   const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState(null);
   const [cast, setCast] = useState([]);
+  const [director, setDirector] = useState(null);
+  const [writer, setWriter] = useState('Unknown'); // Only one writer
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetail = async () => {
       try {
+        // Fetch movie details
         const response = await fetch(
           `https://api.themoviedb.org/3/movie/${id}?api_key=882a8de2ab02bad8c607b4a64e51f81a`
         );
         if (!response.ok) throw new Error(`Movie not found (status: ${response.status})`);
-
         const data = await response.json();
         setMovieDetail(data);
 
+        // Fetch cast and crew (credits)
         const castResponse = await fetch(
           `https://api.themoviedb.org/3/movie/${id}/credits?api_key=882a8de2ab02bad8c607b4a64e51f81a`
         );
         if (!castResponse.ok) throw new Error(`Credits not found (status: ${castResponse.status})`);
-
         const castData = await castResponse.json();
+        
         setCast(castData.cast);
+
+        // Extract the director and first writer from the crew
+        const crew = castData.crew;
+        const director = crew.find(person => person.job === 'Director');
+        const firstWriter = crew.find(person => person.job === 'Writer' || person.department === 'Writing');
+
+        setDirector(director ? director.name : 'Unknown');
+        setWriter(firstWriter ? firstWriter.name : 'Unknown'); // Only one writer
       } catch (e) {
         setError(e.message);
       }
@@ -74,27 +85,29 @@ const Moviedetail = () => {
             <CircularRating vote_average={movieDetail.vote_average} />
           </div>
           <div className='overview-title'>Overview</div>
-          <p className='overview-description'>{movieDetail.overview}</p>
+          <div className='overview-description'>{movieDetail.overview}</div>
 
-                    {/* Status, Runtime, and Release Date */}
-   <div className="movie-info">
-    <p>
-    <span className="label">Status:</span> 
-    <span className="value">{movieDetail.status}</span>
-    </p>
-  <p>
-    <span className="label">Runtime:</span> 
-    <span className="value">{movieDetail.runtime} minutes</span>
-  </p>
-  <p>
-    <span className="label">Release Date:</span> 
-    <span className="value">{new Date(movieDetail.release_date).toDateString()}</span>
-  </p>
-</div>
-<hr />
-<p><strong>Director:</strong> {movieDetail.director}</p>
-  <p><strong>Writers:</strong> {movieDetail.writers.join(', ')}</p>
-
+          {/* Status, Runtime, and Release Date */}
+          <div className="movie-info">
+            <p>
+              <span className="label">Status:</span> 
+              <span className="value">{movieDetail.status}</span>
+            </p>
+            <p>
+              <span className="label">Runtime:</span> 
+              <span className="value">{movieDetail.runtime} minutes</span>
+            </p>
+            <p>
+              <span className="label">Release Date:</span> 
+              <span className="value">{new Date(movieDetail.release_date).toDateString()}</span>
+            </p>
+          </div>
+          <hr />
+          {/* Director and Writer */}
+          <div className='Director'><strong>Director:</strong> {director}</div>
+          <hr />
+          <div className='Writer'><strong>Writer:</strong> {writer}</div>
+          <hr />
         </div>
       </div>
 
