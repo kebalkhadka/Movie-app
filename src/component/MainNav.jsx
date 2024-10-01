@@ -45,11 +45,7 @@ export default function SimpleBottomNavigation() {
           label="TvSeries"
           icon={<TvIcon />}
         />
-        <BottomNavigationAction component={Link} to='/search'
-          style={{ color: 'white' }}
-          label="Search"
-          icon={<SearchIcon />}
-        />    
+           
       </BottomNavigation>
     </Box>
   );
