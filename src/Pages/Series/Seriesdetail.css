@@ -1,0 +1,222 @@
+/* Ensure all elements include padding and border in their width */
+* {
+    box-sizing: border-box;
+  }
+  
+  .Seriesdetails {
+    margin-top: 2rem;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column; /* Default to column layout for smaller screens */
+    gap: 3rem;
+    max-width: 1200px; /* Set a maximum width */
+    width: 100%;
+    margin: 0 auto; /* Center the content */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+  }
+  
+  .left {
+    flex-shrink: 0;
+    width: 100%; /* Full width on smaller screens */
+  }
+  
+  .left img {
+    width: 100%;
+    border-radius: 18px;
+  }
+  
+  .right {
+    flex: 1; /* Ensure the right section fills the remaining space */
+    overflow: hidden;
+  }
+  
+  .right h1 {
+    font-size: 32px; /* Smaller font for better responsiveness */
+  }
+  
+  .right p {
+    font-size: 18px; /* Smaller font for better responsiveness */
+  }
+  
+  .cast {
+    margin-top: 2rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .cast-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    scrollbar-width: none;
+    margin-top: 1rem;
+  }
+  
+  .cast ul {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    width: max-content; 
+  }
+  
+  .cast li {
+    list-style: none;
+    flex-shrink: 0;
+    text-align: center;
+  }
+  
+  .cast img {
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  
+  .cast span {
+    font-size: 1rem;
+    font-weight: semibold;
+    color: #fff;
+    margin-top: 0.5rem;
+    display: block;
+  }
+  
+  .genres {
+    display: flex;
+    margin: 1rem 0;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* Wrap genres on small screens */
+  }
+  
+  button {
+    background-color: #DA2F68;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .rating {
+    margin: 1rem 0;
+  }
+  
+  .overview {
+    margin-bottom: 0.5rem;
+  }
+  
+  .overview-title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+  
+  .overview-description {
+    line-height: 24px;
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+  }
+  
+  .Series-info {
+    margin-top: 1.5rem;
+    font-size: 16px;
+    color: #fff; 
+    display: flex;
+    gap: 1rem;
+    display: flex;
+  }
+  
+  .Series-info .label {
+    font-weight: bold;
+    color: #fff; 
+    margin-right: 0.5rem; 
+    font-size: 16px;
+  }
+  
+  .Series-info .value {
+    color: #888892;
+    font-size: 16px;
+  }
+  
+  .Director {
+    font-size: 16px;
+    color: #888892;
+  }
+  
+  strong {
+    color: #fff;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #888892;
+    margin-top: 1rem;
+    opacity: 0.4;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (min-width: 768px) {
+    .content {
+      flex-direction: row; /* Row layout for medium to large screens */
+    }
+  
+    .left {
+      width: 30%; /* 30% width for larger screens */
+    }
+  
+    .right h1 {
+      font-size: 42px; /* Larger font size for bigger screens */
+    }
+  
+    .right p {
+      font-size: 20px;
+    }
+  
+    .cast img {
+      height: 180px;
+      width: 180px; 
+    }
+  
+    .cast span {
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width:900px) {
+    .movie-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+  }
+  @media (min-width: 1024px) {
+    .content {
+      gap: 4rem;
+    }
+  
+    .right h1 {
+      font-size: 48px;
+    }
+  
+    /* .cast img {
+      height: 200px;
+      width: 200px;
+    } */
+  
+    .cast span {
+      font-size: 1.4rem;
+    }
+   
+  }
+  
+  html, body {
+    overflow-x: hidden;
+  }
+  
